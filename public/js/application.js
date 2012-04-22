@@ -551,7 +551,8 @@ var Calendar = new Class({
           daysToAbbreviation( section.getDays() ) + ', ' +
           decimalToTime( section.getStart() ) + "-" +
           decimalToTime( section.getEnd() ) + '</td>'}).inject( table );
-      new Element( 'tr', { 'class': 'instructor', html: '<td>Instructor:</td><td>' + section.getInstructor().getName() + '</td>' }).inject( table );
+      new Element( 'tr', { 'class': 'instructor', html: '<td>Instructor:</td><td><a href="http://culpa.info/search/results?search='
+        + section.getInstructor().getName() + '" target="_blank">' + section.getInstructor().getName() + '</td>' }).inject( table );
       new Element( 'tr', { 'class': 'location', html: '<td>Location:</td><td>' + section.getLocation() + '</td>' }, this).inject( table );
       new Element( 'tr', { 'class': 'section_description', html: '<td>Description:</td><td>' + section.getDescription() + '</td>' }, this).inject( table );
       new Element( 'tr', { 'class': 'url', html: '<td></td><td>' + '<a target="_blank" href="' + section.getURL() + '">Directory listing</a>' + '</td>'}).inject( table );
