@@ -552,6 +552,10 @@ var Calendar = new Class({
         html: 'Call #: ' + section.getCallNumber(),
         'class': 'timeSlotText timeSlotCallNumber'
       }).inject( canvas );
+      var points = new Element( 'p', {
+        html: 'Points: ' + section.getPoints(),
+        'class': 'timeSlotText timeSlotPoints'
+      }).inject( canvas );
       remove_link.addEvent( 'click', function() {
         this.removeSection( section );
       }.bind(this));
