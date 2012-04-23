@@ -93,6 +93,9 @@ var downcaseLong = function(str) {
   return split.join(' ');
 };
 
+var total_points = 0;
+var unknown_points = 0;
+
 var data_api_url = "http://courses.adicu.com";
 
 
@@ -381,6 +384,13 @@ var Calendar = new Class({
             });
           section_timeslot = this.buildSectionTimeSlot( section ).inject( section_wrapper );
         }.bind(this));
+
+        var points = section.getPoints();
+        if ( points != "Unknown" ) {
+          total_points += points;
+        } else {
+          unknown_points++;
+        }
       }
     },
     addCourse: function( course, semester ){
@@ -482,6 +492,12 @@ var Calendar = new Class({
       $$( '*[sectionid="' + section.getId() + '"]' ).each( function( element, index ){ element.destroy(); });
       this.sections.each( function( o_section, index ) { if ( section.getId() === o_section.getId() ) { this.sections.erase( section )}}.bind(this));
       this.updateURL();
+      var points = section.getPoints();
+      if ( points != "Unknown" ) {
+        total_points -= points;
+      } else {
+        unknown_points--;
+      }
     },
     removeCourse: function( course ){
       $$( '*[courseid="' + course.getId() + '"]' ).each( function( element, index ){ element.destroy(); });
