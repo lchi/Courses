@@ -553,6 +553,7 @@ var Calendar = new Class({
       var table = new Element( 'table' ).inject( box );
       new Element( 'tr', { 'class': 'title', html: '<td>Title:</td><td>' + section.getCourse().getFullTitle() + '; ' + section.getTitle() + '</td>' }).inject( table );
       new Element( 'tr', { 'class': 'time_slot', html: '<td>Call #:</td><td>' + section.getCallNumber() + '</td>' }).inject( table );
+      new Element( 'tr', { 'class': 'points', html: '<td>Points:</td><td>' + section.getPoints() + '</td>' }).inject( table );
       new Element( 'tr', {
         html: '<td>Time slot:</td><td>'+
           daysToAbbreviation( section.getDays() ) + ', ' +
